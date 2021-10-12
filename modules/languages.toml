@@ -1,37 +1,38 @@
 
 [[plugins]]
-repo = 'hardcoreplayers/go-nvim'
-on_ft = ['go','gomod']
+repo = 'othree/html5.vim'
+on_ft = 'html'
+hook_source = '''
+    let g:html5_event_handler_attributes_complete = 0
+    let g:html5_rdfa_attributes_complete = 0
+    let g:html5_microdata_attributes_complete = 0
+    let g:html5_aria_attributes_complete = 0
+'''
+
+[[pluings]]
+repo = 'jackguo380/vim-lsp-cxx-highlight'
+on_ft = [ 'c','cpp' ]
+hook_source = '''
+	call coc#config('languageserver', {
+	\ 'ccls': {
+		\ "command": "ccls",
+		\ "rootPatterns": [".ccls", "compile_commands.json", ".git/", ".hg/"],
+		\ "filetypes": ["c","cpp","objc","objcpp"],
+		\ "initializationOptions": {
+		\ "cache":{
+			\ "directory": "/tmp/ccls"
+		\ }
+		\ }
+		\ }
+		\})
+'''
+
+[[plugins]]
+repo = 'MaxMEllon/vim-jsx-pretty'
+on_ft = [ 'javascript', 'javascriptreact', 'typescriptreact' ]
+depends = 'vim-javascript'
 hook_add = '''
-	nnoremap gcg :GoAuToComment<CR>
-'''
-hook_source = '''
-	call coc#config('languageserver', {
-	\ 'golang': {
-		\ "command": "gopls",
-		\ "rootPatterns": ["go.mod"],
-		\ "disableWorkspaceFolders": "true",
-		\ "filetypes": ["go"]
-		\ }
-		\})
-'''
-
-[[plugins]]
-repo = 'rust-lang/rust.vim'
-on_ft = 'rust'
-
-[[plugins]]
-repo = 'arzg/vim-sh'
-on_ft = [ 'sh','zsh' ]
-hook_source = '''
-	call coc#config('languageserver', {
-	\ 'bash': {
-		\ "command": "bash-language-server",
-		\ "args" : ["start"],
-		\ "ignoredRootPaths": ["~"],
-		\ "filetypes": ["sh"]
-		\ }
-		\})
+	let g:vim_jsx_pretty_colorful_config = 1
 '''
 
 [[plugins]]
@@ -70,55 +71,35 @@ repo = 'raimon49/requirements.txt.vim'
 on_ft = 'requirements'
 
 [[plugins]]
-repo = 'othree/html5.vim'
-on_ft = 'html'
-hook_source = '''
-    let g:html5_event_handler_attributes_complete = 0
-    let g:html5_rdfa_attributes_complete = 0
-    let g:html5_microdata_attributes_complete = 0
-    let g:html5_aria_attributes_complete = 0
-'''
-
-[[plugins]]
-repo = 'jackguo380/vim-lsp-cxx-highlight'
-on_ft = [ 'c','cpp' ]
+repo = 'arzg/vim-sh'
+on_ft = [ 'sh','zsh' ]
 hook_source = '''
 	call coc#config('languageserver', {
-	\ 'ccls': {
-		\ "command": "ccls",
-		\ "rootPatterns": [".ccls", "compile_commands.json", ".git/", ".hg/"],
-		\ "filetypes": ["c","cpp","objc","objcpp"],
-		\ "initializationOptions": {
-		\ "cache":{
-			\ "directory": "/tmp/ccls"
-		\ }
-		\ }
+	\ 'bash': {
+		\ "command": "bash-language-server",
+		\ "args" : ["start"],
+		\ "ignoredRootPaths": ["~"],
+		\ "filetypes": ["sh"]
 		\ }
 		\})
 '''
 
 [[plugins]]
+repo = 'tbastos/vim-lua'
+on_ft = 'lua'
+hook_source = '''
+	call coc#config ('languageserver', {
+			\'lua': {
+				\ "cwd": "full path of lua-language-server directory", (not sure this one is really necessary)
+				\ "command": "full path to lua-language-server executable",
+				\ "args": ["-E", "-e", "LANG=en", "[full path of lua-language-server directory]/main.lua"],
+				\ "filetypes": ["lua"],
+				\ "rootPatterns": [".git/"]
+				\}
+				\})
+'''
+
+[[plugin]]
 repo = 'HerringtonDarkholme/yats.vim'
 on_ft = [ 'typescript', 'typescriptreact' ]
 
-[[plugins]]
-repo = 'MaxMEllon/vim-jsx-pretty'
-on_ft = [ 'javascript', 'javascriptreact', 'typescriptreact' ]
-depends = 'vim-javascript'
-hook_add = '''
-	let g:vim_jsx_pretty_colorful_config = 1
-'''
-
-[[plugins]]
-repo = 'dpelle/vim-LanguageTool'
-hook_add = '''
-	let g:languagetool_jar="$HOME/.bin/LanguageTool-5.2/languagetool-commandline.jar"
-'''
-
-[[plugins]]
-repo = 'kamykn/spelunker.vim'
-hook_source = '''
-	let g:spelunker_spell_bad_group = 'SpelunkerSpellBad'
-	highlight SpelunkerSpellBad cterm=underline gui=underline guifg=NONE
-	highlight SpelunkerComplexOrCompoundWord cterm=underline ctermfg=NONE gui=underline guifg=NONE
-'''

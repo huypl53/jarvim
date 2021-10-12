@@ -2,7 +2,6 @@
 [[plugins]]
 repo = 'editorconfig/editorconfig-vim'
 
-# Done
 [[plugins]]
 repo = 'Yggdroot/indentLine'
 on_event = 'BufReadPre'
@@ -14,7 +13,6 @@ hook_source = '''
     let g:indentLine_showFirstIndentLevel =1
 '''
 
-# Done
 [[plugins]]
 repo = 'tyru/caw.vim'
 depends = 'context_filetype.vim'
@@ -39,20 +37,20 @@ hook_source = '''
       \ }
 '''
 
-# [[plugins]]
-# repo = 'ludovicchabant/vim-gutentags'
-# if = 'executable("ctags")'
-# on_event = ['BufReadPost', 'BufWritePost']
-# hook_source = '''
-#     let g:gutentags_cache_dir = $DATA_PATH . '/tags'
-#     let g:gutentags_project_root = ['.root', '.git', '.svn', '.hg', '.project','go.mod','/usr/local']
-#     let g:gutentags_generate_on_write = 1
-#     let g:gutentags_generate_on_missing = 1
-#     let g:gutentags_generate_on_new = 0
-#     let g:gutentags_exclude_filetypes = [ 'defx', 'denite', 'vista', 'magit' ]
-#     let g:gutentags_ctags_extra_args = ['--output-format=e-ctags']
-#     let g:gutentags_ctags_exclude = ['*.json', '*.js', '*.ts', '*.jsx', '*.css', '*.less', '*.sass', '*.go', '*.dart', 'node_modules', 'dist', 'vendor']
-# '''
+[[plugins]]
+repo = 'ludovicchabant/vim-gutentags'
+if = 'executable("ctags")'
+on_event = ['BufReadPost', 'BufWritePost']
+hook_source = '''
+    let g:gutentags_cache_dir = $DATA_PATH . '/tags'
+    let g:gutentags_project_root = ['.root', '.git', '.svn', '.hg', '.project','go.mod','/usr/local']
+    let g:gutentags_generate_on_write = 1
+    let g:gutentags_generate_on_missing = 1
+    let g:gutentags_generate_on_new = 0
+    let g:gutentags_exclude_filetypes = [ 'defx', 'denite', 'vista', 'magit' ]
+    let g:gutentags_ctags_extra_args = ['--output-format=e-ctags']
+    let g:gutentags_ctags_exclude = ['*.json', '*.js', '*.ts', '*.jsx', '*.css', '*.less', '*.sass', '*.go', '*.dart', 'node_modules', 'dist', 'vendor']
+'''
 
 [[plugins]]
 repo = 'thinca/vim-quickrun'
@@ -66,50 +64,13 @@ hook_source = '''
     let g:quickrun_no_default_key_mappings = 1
 '''
 
-# Done
 [[plugins]]
-repo = 'jpalardy/vim-slime'
-on_ft = 'python'
+repo = 'mattn/emmet-vim'
+on_event = 'InsertEnter'
+on_ft = [ 'html','css','javascript','javascriptreact','vue','typescript','typescriptreact' ]
 hook_source = '''
-		let g:slime_target = 'tmux'
-
-		" fix paste issues in ipython
-		let g:slime_python_ipython = 1
-
-		" always send text to the top-right pane in the current tmux tab without asking
-		let g:slime_default_config = {
-								\ 'socket_name': get(split($TMUX, ','), 0),
-								\ 'target_pane': '{top-right}' }
-		let g:slime_dont_ask_default = 1
-
+    let g:user_emmet_complete_tag = 0
+    let g:user_emmet_install_global = 0
+    let g:user_emmet_install_command = 0
+    let g:user_emmet_mode = 'i'
 '''
-
-
-# Done
-# Current use
-[[plugins]]
-repo = 'hanschen/vim-ipython-cell'
-on_ft = 'python'
-
-
-# Done
-[[plugins]]
-repo = 'sakhnik/nvim-gdb'
-on_ft = 'python'
-
-
-[[plugins]]
-repo = 'pechorin/any-jump.vim'
-hook_source = '''
-	let g:any_jump_disable_default_keybindings = 1
-
-	" Custom ignore files
-	" default is: ['*.tmp', '*.temp']
-	let g:any_jump_ignored_files = ['*.tmp', '*.temp', '*.toml', '*.lua', '*.txt', '*.json']
-
-	" Prefered search engine: rg or ag
-	let g:any_jump_search_prefered_engine = 'rg'
-'''
-
-[[plugins]]
-repo = 'jeetsukumaran/vim-indentwise'

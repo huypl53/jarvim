@@ -1,32 +1,5 @@
-" File              : pmap.vim
-" Author            : phamlehuy53 <unknownsol98@gmail>
-" Date              : 22.01.2021
-" Last Modified Date: 15.02.2021
-" Last Modified By  : phamlehuy53 <unknownsol98@gmail>
-
-"--------------------------"
-"     vim-buffet Keymap    "
-"--------------------------"
-nnoremap  ]b :<C-u>bp<CR>
-nnoremap  [b :<C-u>bn<CR>
-nnoremap <silent> <Leader>bc :Bonly<CR>
-nnoremap <silent> <Leader>bx :Bw<CR>
-nmap <leader>1 <Plug>BuffetSwitch(1)
-nmap <leader>2 <Plug>BuffetSwitch(2)
-nmap <leader>3 <Plug>BuffetSwitch(3)
-nmap <leader>4 <Plug>BuffetSwitch(4)
-nmap <leader>5 <Plug>BuffetSwitch(5)
-nmap <leader>6 <Plug>BuffetSwitch(6)
-nmap <leader>7 <Plug>BuffetSwitch(7)
-nmap <leader>8 <Plug>BuffetSwitch(8)
-nmap <leader>9 <Plug>BuffetSwitch(9)
-nmap <leader>0 <Plug>BuffetSwitch(10)
 
 nmap <leader>e :CocCommand explorer<CR>
-noremap <silent> <Leader>j :execute 'CocCommand explorer' .
-		\ ' --toggle' .
-		\ ' --position=floating' .
-		\ ' --sources=file+'<CR>
 
 nnoremap <silent> <Leader>od :DBUIToggle<CR>
 
@@ -62,7 +35,7 @@ nnoremap <silent> <Leader>,   :Clap coc_commands<CR>
 nnoremap <silent> <Leader>cs  :Clap coc_symbols<CR>
 nnoremap <silent> <Leader>cS  :Clap coc_services<CR>
 nnoremap <silent> <leader>ct  :Clap coc_outline<CR>
-" TODO
+
 function! InitCaw() abort
 	if ! (&l:modifiable && &buftype ==# '')
 		silent! nunmap <buffer> gc
@@ -83,13 +56,11 @@ nnoremap <silent> <Leader>i :<C-u>Vista!!<CR>
 
 nnoremap <silent> <Leader>cr :QuickRun<CR>
 
-nnoremap <silent> <Leader>M :MundoToggle<CR>
+nnoremap <silent> <Leader>t :<C-u>FloatermToggle<CR>
 
 nmap gsj <Plug>(easymotion-w)
 nmap gsk <Plug>(easymotion-b)
 nmap gsf <Plug>(easymotion-overwin-f)
-nmap gss <Plug>(easymotion-overwin-f2)
-
 
 nmap <silent> sa <Plug>(operator-sandwich-add)
 xmap <silent> sa <Plug>(operator-sandwich-add)
@@ -118,7 +89,6 @@ xmap V <Plug>(expand_region_shrink)
 nmap dsf <Plug>DsfDelete
 nmap csf <Plug>DsfChange
 
-" Prettier splits and joins patterns inside (), {}, [],...
 let g:splitjoin_join_mapping = ''
 let g:splitjoin_split_mapping = ''
 nmap sj :SplitjoinJoin<CR>
@@ -210,117 +180,3 @@ xmap af <Plug>(coc-funcobj-a)
 omap if <Plug>(coc-funcobj-i)
 omap af <Plug>(coc-funcobj-a)
 nmap gcj :execute 'CocCommand docthis.documentThis'<CR>
-
-
-"--------------------------"
-"     vim-floaterm Keymap  "
-"--------------------------"
-
-nnoremap   <silent>   <F7>    :FloatermNew<CR>
-tnoremap   <silent>   <F7>    <C-\><C-n>:FloatermNew<CR>
-nnoremap   <silent>   <F8>    :FloatermPrev<CR>
-tnoremap   <silent>   <F8>    <C-\><C-n>:FloatermPrev<CR>
-nnoremap   <silent>   <F9>    :FloatermNext<CR>
-tnoremap   <silent>   <F9>    <C-\><C-n>:FloatermNext<CR>
-nnoremap   <silent>   <F12>   :FloatermToggle<CR>
-tnoremap   <silent>   <F12>   <C-\><C-n>:FloatermToggle<CR>
-nnoremap <silent> <C-_>  :FloatermNew --height=0.5 --width=0.5 --wintype=floating --position=bottomright<CR>
-tnoremap <localleader>b <C-\><C-n><C-w>h
-nnoremap <localleader>b :FloatermToggle<CR>
-nmap <localleader>cp :call coc#float#close_all() <CR>
-nnoremap <silent> <Leader>ot :<C-u>FloatermToggle<CR>
-tnoremap <silent> <Leader>ot <C-\><C-n>:FloatermToggle<CR>
-nnoremap <silent> <Leader>gz :<C-u>FloatermNew height=0.7 width=0.8 lazygit<CR>
-
-autocmd filetype cpp nnoremap <F2> :w <bar> FloatermSend g++ -std=c++14 % -o %:r <CR>
-autocmd filetype cpp nnoremap <F3> :exec 'FloatermSend ./%:r' <bar> FloatermToggle<CR>
-autocmd filetype cpp nnoremap <F4> :exec 'FloatermSend ./%:r < %:r.inp' <bar> FloatermToggle<CR>
-
-" function! StartFloatermSilently() abort
-"   FloatermNew
-"   call timer_start(1, {-> execute('FloatermHide!')})
-" endfunction
-" autocmd VimEnter * call StartFloatermSilently()
-
-nnoremap <silent> <C-i> <C-i>
-
-
-"--------------------------"
-"     Ipython-cell Keymap  "
-"--------------------------"
-" [hanschen/vim-ipython-cell]
-autocmd FileType python nnoremap <leader>as :SlimeSend1 ipython --matplotlib<CR>
-autocmd FileType python nnoremap <leader>ar :IPythonCellRun<CR>
-autocmd FileType python nnoremap <leader>aR :IPythonCellRunTime<CR>
-autocmd FileType python nnoremap <leader>ac :IPythonCellExecuteCell<CR>
-autocmd FileType python nnoremap <leader>aC :IPythonCellExecuteCellJump<CR>
-autocmd FileType python nnoremap <leader>ae :IPythonCellExecuteCellVerbose<CR>
-autocmd FileType python nnoremap <leader>aE :IPythonCellExecuteCellVerboseJump<CR>
-autocmd FileType python nnoremap <leader>al :IPythonCellClear<CR>
-autocmd FileType python nnoremap <leader>ax :IPythonCellClose<CR>
-autocmd FileType python nnoremap [c :IPythonCellPrevCell<CR>
-autocmd FileType python nnoremap ]c :IPythonCellNextCell<CR>
-autocmd FileType python nmap <leader>ah <Plug>SlimeLineSend
-autocmd FileType python xmap <leader>ah <Plug>SlimeRegionSend
-autocmd FileType python nnoremap <leader>ap :IPythonCellPrevCommand<CR>
-autocmd FileType python nnoremap <leader>aQ :IPythonCellRestart<CR>
-autocmd FileType python nnoremap <leader>ad :SlimeSend1 %debug<CR>
-autocmd FileType python nnoremap <leader>aq :SlimeSend1 exit<CR>
-autocmd FileType python autocmd filetype python nnoremap <F2> :SlimeSend1 python % <CR>
-" let g:ipython_cell_tag = ['# %%', '#%%', '# <codecell>', '##']
-
-
-
-" Goyo
-nnoremap <Leader>G :Goyo<CR>
-
-" Markdown preview
-nnoremap <silent> <Leader>om  :<C-u>MarkdownPreview<CR>
-
-" Open dashboard
-nnoremap <silent> <Leader>os  :<C-u>Dashboard<CR>
-
-"-------"
-"Far.vim"
-"-------"
-"shortcut for far.vim find
-nnoremap <silent> <localleader>f  :Farf<cr>
-vnoremap <silent> <localleader>f  :Farf<cr>
-
-" shortcut for far.vim replace
-nnoremap <silent> <localleader>r  :Farr<cr>
-vnoremap <silent> <localleader>r  :Farr<cr>
-
-
-"---------------------"
-"pechorin/any-jump.vim"
-"---------------------"
-" Normal mode: Jump to definition under cursore
-nnoremap <leader>mj :AnyJump<CR>
-
-" Visual mode: jump to selected text in visual mode
-xnoremap <leader>mj :AnyJumpVisual<CR>
-
-" Normal mode: open previous opened file (after jump)
-nnoremap <leader>mb :AnyJumpBack<CR>
-
-" Normal mode: open last closed search window again
-nnoremap <leader>ml :AnyJumpLastResults<CR>
-
-
-"----------------------------"
-"jeetsukumaran/vim-indentwise"
-"----------------------------"
-" [- : Move to previous line of lesser indent than the current line.
-" [+ : Move to previous line of greater indent than the current line.
-" [= : Move to previous line of same indent as the current line that is separated from the current line by lines of different indents.
-" ]- : Move to next line of lesser indent than the current line.
-" ]+ : Move to next line of greater indent than the current line.
-" ]= : Move to next line of same indent as the current line that is separated from the current line by lines of different indents.
-
-" {count}[_ : Move to previous line with indent-level of {count}.
-" {count}]_ : Move to next line with indent-level of {count}.
-
-" [% : Move to beginning of indent-block scope (i.e., move to the line just after the previous line of lesser indent); repeat for {count} outer scopes.
-" ]% : Move to end of indent-block scope (i.e., move to the line just before the next line of lesser indent); repeat for {count} outer scopes.
-

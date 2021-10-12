@@ -2,10 +2,6 @@
 " See plugin/bufkill.vim
 " use emacs keybind
 nmap <C-x>k :BD<CR>
-nmap <silent> <Leader>bn    <Plug>BufKillBack
-nmap <silent> <Leader>bp    <Plug>BufKillForward
-nmap <silent> <Leader>bd    <Plug>BufKillBd
-nmap <silent> <Leader>bu    <Plug>BufKillUndo
 "Write buffer (save)
 nnoremap <C-s> :<C-u>write<CR>
 "yank to end
@@ -17,8 +13,7 @@ nnoremap [w :<C-u>WhitespacePrev<CR>
 nnoremap <silent> <Space>cw :<C-u>silent! keeppatterns %substitute/\s\+$//e<CR>
 
 " insert keymap like emacs
-inoremap <C-w> <C-[>diwi
-" inoremap <C-BS> <C-[>diwa
+inoremap <C-w> <C-[>diwa
 inoremap <C-h> <BS>
 inoremap <C-d> <Del>
 inoremap <C-k>  <ESC>d$a
@@ -29,8 +24,6 @@ inoremap <C-a> <ESC>^i
 inoremap <expr><C-e> pumvisible() ? "\<C-e>" : "\<End>"
 "insert a newline
 inoremap <C-O> <Esc>o
-inoremap <C-L> <Esc>O
-
 imap <C-S> <esc>:w<CR>
 imap <C-Q> <esc>:wq<CR>
 
@@ -48,9 +41,9 @@ tnoremap <A-[> <C-\><C-n>
 
 function! s:QuiteVim() abort
   if empty(expand('%:t'))
-    execute ":wqa"
+    execute ":q"
   else
-    execute ":wqa!"
+    execute ":wq!"
   endif
 endfunction
 " Quiet
@@ -63,32 +56,10 @@ nnoremap <C-l> <C-w>l
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 
-" window
-nnoremap <leader>ws :<C-u>sp<CR>
-nnoremap <leader>wv :<C-u>vs<CR>
+" settings for resize splitted window
+nmap <C-w>[ :vertical resize -3<CR>
+nmap <C-w>] :vertical resize +3<CR>
 
 " Session management shortcuts (see plugin/sessions.vim)
 nmap <Leader>ss :<C-u>SessionSave<CR>
 nmap <Leader>sl :<C-u>SessionLoad<CR>
-
-
-"----------------------"
-"Yilin-Yang/vim-markbar"
-"----------------------"
-" Jump to marks using <Enter>,
-"    Move the cursor to the next mark in the markbar using n,
-"    Move the cursor to the previous mark in the markbar using N,
-"    Rename marks using r,
-"    Clear the name of a mark using c,
-"    Delete marks entirely using d.
-nmap <Leader>M <Plug>ToggleMarkbar
-
-
-"-----------------"
-"simeji/winresizer"
-"-----------------"
-" Shortkeys for open interactive console: <C-e>
-"
-
-" nmap <Leader>hm :FloatermNew! --height=1.0 --width=0.5 --wintype=float --name=key_map --position=right cd $HOME/.config/nvim/core && nvim -c \"e pmap.vim\|sp vmap.vim\"<CR>
-

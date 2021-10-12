@@ -1,8 +1,3 @@
-" File              : general.vim
-" Author            : phamlehuy53 <unknownsol98@gmail>
-" Date              : 24.01.2021
-" Last Modified Date: 26.01.2021
-" Last Modified By  : phamlehuy53 <unknownsol98@gmail>
 
 "General settins{{{
 set mouse=nv                 " Disable mouse in command-line mode
@@ -47,9 +42,9 @@ if has('mac')
 		\ }
 endif
 
-" if has('clipboard')
-" 	set clipboard& clipboard+=unnamedplus
-" endif
+if has('clipboard')
+	set clipboard& clipboard+=unnamedplus
+endif
 
 " Wildmenu {{{
 " --------
@@ -236,7 +231,7 @@ let &g:titlestring="
       \ %<\[%{fnamemodify(getcwd(), ':~')}\] - Neovim"
 
 set showmatch           " Jump to matching bracket
-" set matchpairs+=<:>     " Add HTML brackets to pair matching
+set matchpairs+=<:>     " Add HTML brackets to pair matching
 set matchtime=1         " Tenths of a second to show the matching paren
 
 set showtabline=2       " Always show the tabs line
@@ -249,7 +244,7 @@ set helpheight=12       " Minimum help window height
 set previewheight=12    " Completion preview height
 
 set showcmd             " Show command in status line
-set cmdheight=1         " Height of the command line
+set cmdheight=2         " Height of the command line
 set cmdwinheight=5      " Command-line lines
 set noequalalways       " Don't resize windows on split or close
 set laststatus=2        " Always show a status line

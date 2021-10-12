@@ -3,28 +3,6 @@
 repo = 'Shougo/dein.vim'
 
 [[plugins]]
-repo = 'simnalamburt/vim-mundo'
-on_cmd = 'MundoToggle'
-
-[[plugins]]
-repo = 'easymotion/vim-easymotion'
-on_map = { n = '<Plug>' }
-hook_source = '''
-    let g:EasyMotion_do_mapping = 0
-    let g:EasyMotion_prompt = 'Jump to → '
-    let g:EasyMotion_keys = 'fjdkswbeoavn'
-    let g:EasyMotion_smartcase = 1
-    let g:EasyMotion_use_smartsign_us = 1
-'''
-
-# clever-f.vim extends f, F, t and T mappings for more convenience. 
-# Instead of ;, f is available to repeat after you type f{char} or F{char}. 
-#F after f{char} and F{char} is also available to undo a jump. t{char} and T{char} are ditto. 
-#This extension makes a repeat easier and makes you forget the existence of ;
-[[plugins]]
-repo = 'rhysd/clever-f.vim'
-
-[[plugins]]
 repo = 'luochen1990/rainbow'
 on_ft = [
       'html',
@@ -45,15 +23,9 @@ on_ft = [
       'toml',
     ]
 hook_source = '''
-	let g:rainbow_active = 0
+	let g:rainbow_active = 1
 '''
 
-
-[[plugins]]
-repo = 'Yggdroot/hiPairs'
-
-# TODO
-[[plugins]]
 repo = 'voldikss/vim-floaterm'
 on_cmd = ['FloatermNew', 'FloatermToggle', 'FloatermPrev', 'FloatermNext', 'FloatermSend']
 hook_source= '''
@@ -74,44 +46,13 @@ hook_add = '''
   nmap <silent>k <Plug>(accelerated_jk_gk)
 '''
 
-
-# Focus on para
 [[plugins]]
-repo = 'junegunn/goyo.vim'
-on_cmd = 'Goyo'
+repo = 'easymotion/vim-easymotion'
+on_map = { n = '<Plug>' }
 hook_source = '''
-		source  $VIM_PATH/vim-modules/module-goyo.vim
+    let g:EasyMotion_do_mapping = 0
+    let g:EasyMotion_prompt = 'Jump to → '
+    let g:EasyMotion_keys = 'fjdkswbeoavn'
+    let g:EasyMotion_smartcase = 1
+    let g:EasyMotion_use_smartsign_us = 1
 '''
-
-# TODO
-[[plugins]]
-repo = 'junegunn/Limelight.vim'
-on_cmd = 'Limelight'
-hook_add = '''
-  let g:limelight_conceal_ctermfg = 'gray'
-  let g:limelight_conceal_ctermfg = 240
-  let g:limelight_conceal_guifg = 'DarkGray'
-  let g:limelight_conceal_guifg = '#777777'
-'''
-
-# Insert or delete brackets, parens, quotes in pair.
-[[plugins]]
-repo = 'jiangmiao/auto-pairs'
-
-# [[plugins]]
-# repo = 'cohama/lexima.vim'
-
-# Done
-# Resize windows
-[[plugins]]
-repo = 'simeji/winresizer'
-hook_add = '''
-'''
-
-# Depended line-number mode
-# [[plugins]]
-# repo = 'ericbn/vim-relativize'
-
-# Session auto saving
-[[plugins]]
-repo = 'rmagatti/auto-session'
