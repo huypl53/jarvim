@@ -21,6 +21,8 @@ repo = 'joshdick/onedark.vim'
 [[plugins]]
 repo = 'lifepillar/vim-gruvbox8'
 
+[[plugins]]
+repo = 'kyazdani42/nvim-web-devicons'
 
 [[plugins]]
 repo = 'hardcoreplayers/spaceline.vim'

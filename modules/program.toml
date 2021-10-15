@@ -53,6 +53,9 @@ hook_source = '''
 '''
 
 [[plugins]]
+repo = 'romgrk/barbar.nvim'
+
+[[plugins]]
 repo = 'thinca/vim-quickrun'
 on_cmd = 'QuickRun'
 hook_source = '''
