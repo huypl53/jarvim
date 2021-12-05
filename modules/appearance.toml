@@ -29,3 +29,8 @@ repo = 'hardcoreplayers/spaceline.vim'
 hook_source = '''
 	let g:spaceline_seperate_style= 'slant'
 '''
+[[plugins]]
+repo = 'ray-x/aurora'
+
+# [[plugins]]
+# repo = 'hardcoreplayers/dashboard-nvim'

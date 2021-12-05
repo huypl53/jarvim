@@ -35,3 +35,18 @@ hook_source = '''
 [[plugins]]
 repo = 'vn-ki/coc-clap'
 on_source = 'vim-clap'
+
+[[plugins]]
+repo = 'brooth/far.vim'
+hook_source = '''
+	set lazyredraw            " improve scrolling performance when navigating through large results
+	set regexpengine=1        " use old regexp engine
+	set ignorecase smartcase  " ignore case only when the pattern contains no capital letters
+	let g:far#prompt_mapping = {
+        \ 'quit'           : { 'key' : '<esc>', 'prompt' : 'Esc' },
+        \ 'regex'          : { 'key' : '<C-x>', 'prompt' : '^X'  },
+        \ 'case_sensitive' : { 'key' : '<C-a>', 'prompt' : '^A'  },
+        \ 'word'           : { 'key' : '<C-w>', 'prompt' : "^W"  },
+        \ 'substitute'     : { 'key' : '<C-f>', 'prompt' : '^F'  },
+        \ }
+'''

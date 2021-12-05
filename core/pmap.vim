@@ -1,24 +1,27 @@
 
 nmap <leader>e :CocCommand explorer<CR>
-
+noremap <silent> <Leader>j :execute 'CocCommand explorer' .
+		\ ' --toggle' .
+		\ ' --position=floating' .
+		\ ' --sources=file+'<CR>
 nnoremap <silent> <Leader>od :DBUIToggle<CR>
 
 "--------------------------"
 "     vim-clap Keymap      "
 "--------------------------"
-nnoremap <silent> <Leader>tc :<C-u>Clap colors<CR>
-nnoremap <silent> <Leader>bb :<C-u>Clap buffers<CR>
-nnoremap <silent> <Leader>fa :<C-u>Clap grep2<CR>
-nnoremap <silent> <Leader>fb :<C-u>Clap marks<CR>
+nnoremap <silent> <Leader>scc :<C-u>Clap colors<CR>
+nnoremap <silent> <Leader>bl :<C-u>Clap buffers<CR>
+nnoremap <silent> <Leader>fg :<C-u>Clap grep2<CR>
+nnoremap <silent> <Leader>ml :<C-u>Clap marks<CR>
 "like emacs counsel-find-file
 nnoremap <silent> <C-x><C-f> :<C-u>Clap filer<CR>
-nnoremap <silent> <Leader>ff :<C-u>Clap files ++finder=rg --ignore --hidden --files<cr>
-nnoremap <silent> <Leader>fg :<C-u>Clap gfiles<CR>
+nnoremap <silent> <Leader>fF :<C-u>Clap files ++finder=rg --ignore --hidden --files<cr>
+nnoremap <silent> <Leader>ff :<C-u>Clap gfiles<CR>
 nnoremap <silent> <Leader>fw :<C-u>Clap grep ++query=<cword><cr>
 nnoremap <silent> <Leader>fh :<C-u>Clap history<CR>
 nnoremap <silent> <Leader>fW :<C-u>Clap windows<CR>
 nnoremap <silent> <Leader>fl :<C-u>Clap loclist<CR>
-nnoremap <silent> <Leader>fu :<C-u>Clap git_diff_files<CR>
+nnoremap <silent> <Leader>go :<C-u>Clap git_diff_files<CR>
 nnoremap <silent> <Leader>fv :<C-u>Clap grep ++query=@visual<CR>
 nnoremap <silent> <Leader>oc :<C-u>Clap personalconf<CR>
 
@@ -26,7 +29,8 @@ nnoremap <silent> <Leader>oc :<C-u>Clap personalconf<CR>
 "     coc-clap Keymap      "
 "--------------------------"
 " Show all diagnostics
-nnoremap <silent> <Leader>ce  :Clap coc_diagnostics<CR>
+" Lint diagnostics
+nnoremap <silent> <Leader>ld  :Clap coc_diagnostics<CR>
 " Manage extensions
 nnoremap <silent> <Leader>;   :Clap coc_extensions<CR>
 " Show commands
@@ -56,11 +60,10 @@ nnoremap <silent> <Leader>i :<C-u>Vista!!<CR>
 
 nnoremap <silent> <Leader>cr :QuickRun<CR>
 
-nnoremap <silent> <Leader>t :<C-u>FloatermToggle<CR>
-
 nmap gsj <Plug>(easymotion-w)
 nmap gsk <Plug>(easymotion-b)
 nmap gsf <Plug>(easymotion-overwin-f)
+nmap gss <Plug>(easymotion-overwin-f2)
 
 nmap <silent> sa <Plug>(operator-sandwich-add)
 xmap <silent> sa <Plug>(operator-sandwich-add)
@@ -138,20 +141,26 @@ nmap <Leader>cf  <Plug>(coc-format-selected)
 " Fix autofix problem of current line
 nmap <Leader>cF  <Plug>(coc-fix-current)
 " Remap keys for gotos
-nmap <silent> gd :<C-u>call initself#definition_other_window()<CR>
+" nmap <silent> gd :<C-u>call initself#definition_other_window()<CR>
+nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
-nmap <silent> <Leader>ci <Plug>(coc-implementation)
+" nmap <silent> <Leader>ci <Plug>(coc-implementation)
+nmap <silent> <Leader>gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
+nmap <silent> gD <Plug>(coc-declaration)
 " Use K for show documentation in float window
 nnoremap <silent> K :call CocActionAsync('doHover')<CR>
 " use <c-space> for trigger completion.
 inoremap <silent><expr> <c-space> coc#refresh()
-nmap ]g <Plug>(coc-git-prevchunk)
-nmap [g <Plug>(coc-git-nextchunk)
-" show chunk diff at current position
-nmap <Leader>gi <Plug>(coc-git-chunkinfo)
-" show commit contains current position
-nmap <Leader>gm <Plug>(coc-git-commit)
+" nmap ]g <Plug>(coc-git-prevchunk)
+" nmap [g <Plug>(coc-git-nextchunk)
+
+nmap <leader>gk <Plug>(coc-git-prevchunk)
+nmap <leader>gj <Plug>(coc-git-nextchunk)
+"show chunk diff at current position
+nmap <Leader>gp <Plug>(coc-git-chunkinfo)
+"show commit contains current position
+nmap <Leader>gC <Plug>(coc-git-commit)
 " float window scroll
 nnoremap <expr><C-f> coc#util#has_float() ? coc#util#float_scroll(1) : "\<C-f>"
 nnoremap <expr><C-b> coc#util#has_float() ? coc#util#float_scroll(0) : "\<C-b>"
@@ -197,18 +206,93 @@ nnoremap <silent>    <leader>7 :BufferGoto 7<CR>
 nnoremap <silent>    <leader>8 :BufferGoto 8<CR>
 nnoremap <silent>    <leader>9 :BufferLast<CR>
 nnoremap <silent>    <leader>p :BufferPin<CR>
-nnoremap <silent>    <leader>bd :BufferClose<CR>
+nnoremap <silent>    <leader>bcc :BufferClose<CR>
 " Wipeout buffer
 "                          :BufferWipeout<CR>
 " Close commands
-"                          :BufferCloseAllButCurrent<CR>
-"                          :BufferCloseAllButPinned<CR>
-"                          :BufferCloseBuffersLeft<CR>
-"                          :BufferCloseBuffersRight<CR>
+nnoremap <silent>    <leader>bec :BufferCloseAllButCurrent<CR>
+nnoremap <silent>    <leader>bep :BufferCloseAllButPinned<CR>
+nnoremap <silent>    <leader>bej :BufferCloseBuffersLeft<CR>
+nnoremap <silent>    <leader>bek :BufferCloseBuffersRight<CR>
 " Magic buffer-picking mode
-nnoremap <silent> <C-s>    :BufferPick<CR>
+nnoremap <silent> <leader>bp    :BufferPick<CR>
 " Sort automatically by...
-nnoremap <silent> <Space>bb :BufferOrderByBufferNumber<CR>
-nnoremap <silent> <Space>bd :BufferOrderByDirectory<CR>
-nnoremap <silent> <Space>bl :BufferOrderByLanguage<CR>
-nnoremap <silent> <Space>bw :BufferOrderByWindowNumber<CR>
+nnoremap <silent> <Space>bon :BufferOrderByBufferNumber<CR>
+nnoremap <silent> <Space>bod :BufferOrderByDirectory<CR>
+nnoremap <silent> <Space>bol :BufferOrderByLanguage<CR>
+" nnoremap <silent> <Space>bw :BufferOrderByWindowNumber<CR>
+
+"--------------------------"
+"     vim-floaterm Keymap  "
+"--------------------------"
+
+nnoremap   <silent>   <F7>    :FloatermNew<CR>
+tnoremap   <silent>   <F7>    <C-\><C-n>:FloatermNew<CR>
+nnoremap   <silent>   <F8>    :FloatermPrev<CR>
+tnoremap   <silent>   <F8>    <C-\><C-n>:FloatermPrev<CR>
+nnoremap   <silent>   <F9>    :FloatermNext<CR>
+tnoremap   <silent>   <F9>    <C-\><C-n>:FloatermNext<CR>
+nnoremap   <silent>   <F12>   :FloatermToggle<CR>
+tnoremap   <silent>   <F12>   <C-\><C-n>:FloatermToggle<CR>
+nnoremap <silent> <C-_>  :FloatermNew --height=0.5 --width=0.5 --wintype=floating --position=bottomright<CR>
+tnoremap <localleader>b <C-\><C-n><C-w>h
+" nnoremap <localleader>b :FloatermToggle<CR>
+nmap <localleader>cp :call coc#float#close_all() <CR>
+nnoremap <silent> <Leader>ot :<C-u>FloatermToggle<CR>
+tnoremap <silent> <Leader>ot <C-\><C-n>:FloatermToggle<CR>
+nnoremap <silent> <Leader>gg :<C-u>FloatermNew height=0.7 width=0.8 lazygit<CR>
+
+autocmd filetype cpp nnoremap <F2> :w <bar> FloatermSend g++ -std=c++14 % -o %:r <CR>
+autocmd filetype cpp nnoremap <F3> :exec 'FloatermSend ./%:r' <bar> FloatermToggle<CR>
+autocmd filetype cpp nnoremap <F4> :exec 'FloatermSend ./%:r < %:r.inp' <bar> FloatermToggle<CR>
+
+" function! StartFloatermSilently() abort
+"   FloatermNew
+"   call timer_start(1, {-> execute('FloatermHide!')})
+" endfunction
+" autocmd VimEnter * call StartFloatermSilently()
+
+nnoremap <silent> <C-i> <C-i>
+
+
+"--------------------------"
+"     Ipython-cell Keymap  "
+"--------------------------"
+"
+nnoremap <leader>as :SlimeSend1 ipython --matplotlib<CR>
+nnoremap <leader>ar :IPythonCellRun<CR>
+nnoremap <leader>aR :IPythonCellRunTime<CR>
+nnoremap <leader>ac :IPythonCellExecuteCell<CR>
+nnoremap <leader>aC :IPythonCellExecuteCellJump<CR>
+nnoremap <leader>al :IPythonCellClear<CR>
+nnoremap <leader>ax :IPythonCellClose<CR>
+nnoremap [c :IPythonCellPrevCell<CR>
+nnoremap ]c :IPythonCellNextCell<CR>
+nmap <leader>ah <Plug>SlimeLineSend
+xmap <leader>ah <Plug>SlimeRegionSend
+nnoremap <leader>ap :IPythonCellPrevCommand<CR>
+nnoremap <leader>aQ :IPythonCellRestart<CR>
+nnoremap <leader>ad :SlimeSend1 %debug<CR>
+nnoremap <leader>aq :SlimeSend1 exit<CR>
+autocmd filetype python nnoremap <F2> :SlimeSend1 python % <CR>
+"let g:ipython_cell_tag = ['# %%', '#%%', '# <codecell>', '##']
+
+" Goyo
+nnoremap <Leader>G :Goyo<CR>
+
+" Markdown preview
+nnoremap <silent> <Leader>om  :<C-u>MarkdownPreview<CR>
+
+" Open dashboard
+" nnoremap <silent> <Leader>os  :<C-u>Dashboard<CR>
+
+"-------"
+"Far.vim"
+"-------"
+"shortcut for far.vim find
+nnoremap <silent> <localleader>f  :Farf<cr>
+vnoremap <silent> <localleader>f  :Farf<cr>
+
+" shortcut for far.vim replace
+nnoremap <silent> <localleader>r  :Farr<cr>
+vnoremap <silent> <localleader>r  :Farr<cr>

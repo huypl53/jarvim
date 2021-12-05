@@ -52,3 +52,20 @@ on_map = { ox = '<Plug>' }
 hook_add = '''
 	let g:textobj_function_no_default_key_mappings = 1
 '''
+
+# Open a sidebar that shows you every mark that
+# you can access from your current buffer, as well
+# as the contexts in which those marks appear.
+[[plugins]]
+repo = 'Yilin-Yang/vim-markbar'
+hook_add = '''
+	" width of a vertical split markbar
+	let g:markbar_width = 40
+	let g:markbar_enable_peekaboo = v:false
+	"let g:markbar_peekaboo_backtick_mapping = ''
+'''
+
+# Whenever cursor jumps some distance or moves between
+# windows, it will flash so you can see where it is.
+[[plugins]]
+repo = 'DanilaMihailov/beacon.nvim'
