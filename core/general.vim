@@ -143,6 +143,7 @@ set autoindent      " Use same indenting on new lines
 set smartindent     " Smart autoindenting on new lines
 set shiftround      " Round indent to multiple of 'shiftwidth'
 
+autocmd FileType cpp setlocal shiftwidth=2 softtabstop=2 expandtab
 if exists('&breakindent')
 	set breakindentopt=shift:2,min:20
 endif
