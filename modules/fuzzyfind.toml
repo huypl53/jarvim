@@ -50,3 +50,6 @@ hook_source = '''
         \ 'substitute'     : { 'key' : '<C-f>', 'prompt' : '^F'  },
         \ }
 '''
+
+[[plugins]]
+repo = 'chentau/marks.nvim'
