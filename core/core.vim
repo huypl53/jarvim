@@ -61,6 +61,7 @@ call initself#source_file($VIM_PATH,'core/vmap.vim')
 lua <<EOF
 require("init")
 EOF
+
 call theme#theme_init()
 
 nnoremap <silent> <leader> :WhichKey '<Space>'<CR>

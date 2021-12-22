@@ -1,3 +1,11 @@
+function map(mode, lhs, rhs, opts)
+  local options = { noremap = true, silent = true }
+  if opts then
+    options = vim.tbl_extend("force", options, opts)
+  end
+  vim.api.nvim_set_keymap(mode, lhs, rhs, options)
+end
+
 require'marks'.setup {
   -- whether to map keybinds or not. default true
   default_mappings = true,
@@ -29,3 +37,17 @@ require'marks'.setup {
   },
   mappings = {}
 }
+
+
+-- mappings
+map("n", "<leader>m,", "<Plug>(Marks-setnext)", {noremap=false})
+map("n", "<leader>m;", "<Plug>(Marks-toggle)", {noremap=false})
+map("n", "<leader>dm<space>", "<Plug>(Marks-deletebuf)", {noremap=false})
+map("n", "<leader>m:", "<Plug>(Marks-preview)", {noremap=false})
+map("n", "<leader>m]", "<Plug>(Marks-next)", {noremap=false})
+map("n", "<leader>m[", "<Plug>(Marks-prev)", {noremap=false})
+map("n", "<leader>m[0-9]", "<Plug>(Marks-set-bookmark[0-9])", {noremap=false})
+map("n", "<leader>dm[0-9]", "<Plug>(Marks-delete-bookmark[0-9])", {noremap=false})
+map("n", "<leader>m}", "<Plug>(Marks-next-bookmark[0-9])", {noremap=false})
+map("n", "<leader>m{", "<Plug>(Marks-pre-bookmark[0-9])", {noremap=false})
+
