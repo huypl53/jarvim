@@ -39,6 +39,10 @@ require'marks'.setup {
 }
 
 
+--Beautify--
+-- require("plugins.eviline")
+
+
 -- mappings
 map("n", "<leader>m,", "<Plug>(Marks-setnext)", {noremap=false})
 map("n", "<leader>m;", "<Plug>(Marks-toggle)", {noremap=false})

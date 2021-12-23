@@ -27,8 +27,13 @@ repo = 'kyazdani42/nvim-web-devicons'
 [[plugins]]
 repo = 'hardcoreplayers/spaceline.vim'
 hook_source = '''
-	let g:spaceline_seperate_style= 'slant'
+	let g:spaceline_seperate_style= 'arrow'
 '''
+
+
+# [[plugins]]
+# repo = 'glepnir/galaxyline.nvim'
+
 [[plugins]]
 repo = 'ray-x/aurora'
 
