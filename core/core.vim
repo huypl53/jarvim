@@ -63,6 +63,7 @@ require("init")
 EOF
 
 call theme#theme_init()
+autocmd vimenter * hi Normal guibg=NONE ctermbg=NONE
 
 nnoremap <silent> <leader> :WhichKey '<Space>'<CR>
 set secure
