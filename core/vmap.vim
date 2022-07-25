@@ -2,7 +2,7 @@
 " See plugin/bufkill.vim
 " use emacs keybind
 " nmap <C-x>k :BD<CR>
-nmap <leader>bcc :bd<CR>
+" nmap <leader>bcc :bd<CR>
 "Write buffer (save)
 " nnoremap <C-s> :<C-u>write<CR>
 "yank to end
