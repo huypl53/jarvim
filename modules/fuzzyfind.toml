@@ -52,4 +52,4 @@ hook_source = '''
 '''
 
 [[plugins]]
-repo = 'chentau/marks.nvim'
+repo = 'chentoast/marks.nvim'
