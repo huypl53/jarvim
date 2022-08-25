@@ -91,10 +91,10 @@
   "explorer.floating.width": -20,
   "explorer.floating.height": -10,
   "explorer.openAction.strategy": "sourceWindow",
-  // "explorer.keyMappings.global": {
-  //   "s": "open:split",
-  //   "v": "open:vsplit"
-  // },
+  "explorer.keyMappings.global": {
+    "s": "open:split",
+    "v": "open:vsplit"
+  },
   "eslint.filetypes": [
     "javascript",
     "javascriptreact",

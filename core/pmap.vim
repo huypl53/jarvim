@@ -180,6 +180,7 @@ nmap <silent><M-c>  <Plug>(coc-cursors-operator)
 
 " Use :Format for format current buffer
 command! -nargs=0 Format :call CocAction('format')
+nmap <leader>lf :call CocAction('format')<CR>
 
 nnoremap  <Leader>fz :<C-u>CocSearch -w<Space>
 " Introduce function text object
