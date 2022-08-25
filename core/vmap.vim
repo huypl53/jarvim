@@ -23,6 +23,8 @@ inoremap <C-b> <Left>
 inoremap <C-f> <Right>
 inoremap <C-a> <ESC>^i
 inoremap <expr><C-e> pumvisible() ? "\<C-e>" : "\<End>"
+inoremap kj <Esc>
+inoremap jk <Esc>
 "insert a newline
 inoremap <C-O> <Esc>o
 imap <C-S> <esc>:w<CR>
