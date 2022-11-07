@@ -9,6 +9,10 @@ hook_source = '''
     let g:html5_aria_attributes_complete = 0
 '''
 
+[[plugins]]
+repo = 'AndrewRadev/tagalong.vim'
+on_ft = 'html'
+
 [[pluings]]
 repo = 'jackguo380/vim-lsp-cxx-highlight'
 on_ft = [ 'c','cpp' ]
